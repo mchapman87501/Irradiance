@@ -4,4 +4,4 @@ The Irradiance package is a Swift translation of the spectrl2 C code from NREL's
 
 For most uses the main entity will be Irradiance, which calculates irradiance spectra for flat surfaces located/oriented on earth's surface.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://travis-ci.org/mchapman87501/Irradiance.svg?branch=master)](https://travis-ci.org/mchapman87501/Irradiance)
