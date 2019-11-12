@@ -2,7 +2,7 @@
 internal struct ETSolarIrradiance {
     let etr: Double
     let etrNormal: Double
-    
+
     /**
      * - parameters:
      *    - cosZen: 
@@ -10,8 +10,7 @@ internal struct ETSolarIrradiance {
      *    - solarConstant: solar energy per unit area, W / m^2
      */
     init(cosZen: Double, r earthRadiusVector: Double,
-         solarConstant: Double = DEFAULT_SOLAR_CONSTANT)
-    {
+         solarConstant: Double = DefaultConst.solarConstant) {
         if cosZen > 0.0 {
             let etrn = solarConstant * earthRadiusVector
             etrNormal = etrn

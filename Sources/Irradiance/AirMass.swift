@@ -9,7 +9,7 @@ internal struct AirMass {
     let airmass: Double
     let pressure: Double // air mass corrected for atmospheric pressure
 
-    init(zenRef: Double, pressure: Double = DEFAULT_PRESSURE) {
+    init(zenRef: Double, pressure: Double = DefaultConst.pressure) {
         if zenRef > 93.0 {
             self.airmass = -1.0
             self.pressure = -1.0
@@ -20,4 +20,3 @@ internal struct AirMass {
         }
     }
 }
-

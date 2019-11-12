@@ -26,7 +26,6 @@
 // attenuation at a given wavelength, given the ozone mass in the atmosphere. 
 // This is an optional because a default calculation is available.
 
-
 public struct AtmosphericConditions {
     var alpha: Double  // power on Angstrom turbidity
     var aerosolAssymetryFactor: Double
@@ -37,20 +36,19 @@ public struct AtmosphericConditions {
     var ozoneAbsorption: Double? // Ozone absorption factor
 
     public init(
-        alpha a: Double = 1.14,
+        alpha alp: Double = 1.14,
         aerosolAssymetryFactor aaf: Double = 0.65, // Default to rural
-        waterVapor wv: Double,
+        waterVapor vapor: Double,
         tau500 t500: Double = 0.15,
-        temperature t: Double = DEFAULT_TEMP,
-        pressure p: Double = DEFAULT_PRESSURE,
-        ozoneAbsorption oa: Double? = nil)
-    {
-        alpha = a
+        temperature temp: Double = DefaultConst.temperature,
+        pressure press: Double = DefaultConst.pressure,
+        ozoneAbsorption ozone: Double? = nil) {
+        alpha = alp
         aerosolAssymetryFactor = aaf
-        waterVapor = wv
+        waterVapor = vapor
         tau500 = t500
-        temperature = t
-        pressure = p
-        ozoneAbsorption = oa
+        temperature = temp
+        pressure = press
+        ozoneAbsorption = ozone
     }
 }

@@ -12,4 +12,3 @@ public struct IrradianceRecord {
     public let direct: Double
     public let diffuse: Double // Diffuse irradiance at waveOrFreq
 }
-

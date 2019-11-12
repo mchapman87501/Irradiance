@@ -13,9 +13,8 @@ internal struct AtmosphericRefraction {
 
     init(
         elevationETR: Double,
-        pressure: Double = DEFAULT_PRESSURE,
-        temperature: Double = DEFAULT_TEMP)
-    {
+        pressure: Double = DefaultConst.pressure,
+        temperature: Double = DefaultConst.temperature) {
         let refcor = AtmosphericRefraction.getRefractionCorrection(
             elevationETR: elevationETR, pressure: pressure, temperature: temperature)
 
@@ -28,26 +27,24 @@ internal struct AtmosphericRefraction {
         zenRef = 90.0 - elevRef
         cosZen = cos(rads(zenRef))
     }
-    
+
     public static func getRefractionCorrection(
-        elevationETR: Double, pressure: Double, temperature: Double) -> Double 
-    {
+        elevationETR: Double, pressure: Double, temperature: Double) -> Double {
         // If the sun is near zenith, the algorithm bombs; refraction near 0
         guard elevationETR <= 85.0 else { return 0.0 }
-    
+
         // Otherwise, we have refraction
         let rawRefCorr = getRawRefCorr(elevationETR: elevationETR)
         let pressTemp = getPressTempRatio(pressure: pressure, temperature: temperature)
         return rawRefCorr * pressTemp / 3600.0
     }
-    
-    private static func getRawRefCorr(elevationETR: Double) -> Double
-    {
+
+    private static func getRawRefCorr(elevationETR: Double) -> Double {
         let tanelev = tan(rads(elevationETR))
         if elevationETR >= 5.0 {
             return 58.1 / tanelev -
                    0.07 / pow(tanelev, 3) +
-                   0.000086 / pow(tanelev, 5);
+                   0.000086 / pow(tanelev, 5)
         } else if elevationETR >= -0.575 {
             return 1735.0 +
                    elevationETR * (-518.2 + elevationETR * (103.4 +
@@ -55,10 +52,9 @@ internal struct AtmosphericRefraction {
         }
         return -20.774 / tanelev
     }
-    
+
     private static func getPressTempRatio(
-        pressure: Double, temperature celsius: Double) -> Double
-    {
+        pressure: Double, temperature celsius: Double) -> Double {
         let kelvin = celsius + 273.0
         return (283.0 * pressure) / (1013 * kelvin)
     }

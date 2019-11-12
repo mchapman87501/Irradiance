@@ -1,3 +1,5 @@
-public let DEFAULT_PRESSURE = 1013.0 // millibars
-public let DEFAULT_TEMP = 15.0 // ambient dry-bulb temp, degrees Celsius
-public let DEFAULT_SOLAR_CONSTANT = 1367.0 // Solar constant, W/m^2
+public struct DefaultConst {
+    public static let pressure = 1013.0 // millibars
+    public static let temperature = 15.0 // ambient dry-bulb temp, degrees Celsius
+    public static let solarConstant = 1367.0 // Solar constant, W/m^2
+}
