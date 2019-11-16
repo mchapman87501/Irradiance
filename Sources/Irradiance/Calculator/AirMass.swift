@@ -1,6 +1,4 @@
 import Foundation
-import SolarPos // For math utils
-
 // Airmass
 // Kasten, F. and Young, A.  1989.  Revised optical air mass
 // tables and approximation formula.  Applied Optics 28 (22),

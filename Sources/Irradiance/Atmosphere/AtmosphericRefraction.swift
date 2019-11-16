@@ -1,5 +1,4 @@
 import Foundation
-import SolarPos // For math utils
 
 // Refraction correction, degrees
 // Zimmerman, John C.  1981.  Sun-pointing programs and their
